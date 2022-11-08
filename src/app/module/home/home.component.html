@@ -1,10 +1,15 @@
 <app-navbar></app-navbar>
-<!-- <app-card></app-card> -->
+
+<div class="container flex flex-wrap justify-between items-center mx-auto">
+    <app-card *ngFor="let hero of heroes" class="m-4">
+
+    </app-card>
+</div>
 
 <!-- SC : https://stackblitz.com/edit/angular-routerlink-state?file=src%2Fapp%2Fapp.component.html,src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.module.ts -->
-<a class="" routerLink="/about">About</a>
+<!-- <a class="" routerLink="/about">About</a> -->
 
-<div class="flex">
+<!-- <div class="flex">
     <div class="basis-full">
         <form [formGroup]="formGroupLogin">
             <div class="form-group">
@@ -16,6 +21,20 @@
                 <input formControlName="password" class="input" type="password" placeholder="password" />
             </div>
             <button (click)="onLogin()">Login</button>
+        </form>
+    </div>
+
+    <div class="basis-full">
+        <form [formGroup]="addUserForm" (ngSubmit)="saveUserTyped()">
+            <div class="form-group">
+                <div>Username : </div>
+                <input formControlName="jobseekerEmail" class="input" type="text" placeholder="username" />
+            </div>
+            <div class="form-group">
+                <div>Password : </div>
+                <input formControlName="jobseekerPassword" class="input" type="password" placeholder="password" />
+            </div>
+            <button [disabled]="!addUserForm.valid" type="submit">Register</button>
         </form>
     </div>
 
@@ -34,4 +53,4 @@
             <li *ngFor="let hero of heroByRole">{{ hero.hero_name }}</li>
         </ul>
     </div>
-</div>
+</div> -->

@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   heroes = new Array<any>();
   heroDetail = new Array<any>();
   heroByRole = new Array<any>();
+  user: any;
 
   // Path Variable / Parameters
   roleId: any; // for path variable
@@ -98,6 +99,28 @@ export class HomeComponent implements OnInit {
           alert(JSON.stringify(error));
         }
       );
+    } else {
+      alert("Form not valid");
+    }
+  }
+
+  addUserForm = new FormGroup({
+    jobseekerEmail: new FormControl("", [Validators.required]),
+    jobseekerPassword: new FormControl("", [Validators.required]),
+  })
+
+  saveUserTyped() {
+    if (this.addUserForm.valid) {
+      this.user = this.addUserForm.value;
+      this.homeService.postLogin(this.user).subscribe(
+        (response) => {
+          alert("Success");
+          console.log(response);
+        },
+        (error) => {
+          alert(error.error.message);
+        }
+      )
     } else {
       alert("Form not valid");
     }

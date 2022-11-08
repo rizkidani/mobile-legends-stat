@@ -36,12 +36,17 @@ export class HomeService {
 
   public postLogin(body: any): Observable<any> {
     // return this.http.post("https://zoo-animal-api.herokuapp.com/animals/rand", body);
-    alert(body.value);
     const params = new HttpParams()
-      .set('jobseekerEmail', 'manoppo25@gmail.com')
-      .set('jobseekerPassword', 'Superadmin123@');
+      .set('jobseekerEmail', body.jobseekerEmail)
+      .set('jobseekerPassword', body.jobseekerPassword);
 
     this.http.get
     return this.http.post("http://54.251.83.205:9091/api/v1/jobseeker/login", params);
+  }
+
+  public postRegister(body: any): Observable<any> {
+    console.log(body);
+    const url = 'http://54.251.83.205:9091/api/v1/jobseeker/login';
+    return this.http.post(url, body);
   }
 }
