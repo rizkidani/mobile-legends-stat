@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card',
+  selector: 'component-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
@@ -12,4 +12,6 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // SC : https://angular.io/guide/inputs-outputs
+  @Input() item: any;
 }

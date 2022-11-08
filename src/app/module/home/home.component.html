@@ -1,9 +1,12 @@
 <app-navbar></app-navbar>
 
-<div class="container flex flex-wrap justify-between items-center mx-auto">
-    <app-card *ngFor="let hero of heroes" class="m-4">
-
-    </app-card>
+<!-- Dymamic card | SC : https://codepen.io/handplant/pen/MWWaYNw -->
+<div class="container mx-auto">
+    <div class="flex flex-wrap justify-center items-center my-4 md:-mx-4">
+        <component-card *ngFor="let hero of heroes" [item]="hero"
+            class="w-full sm:w-1/2 md:w-1/2 xl:w-1/3 md:p-4 md:m-0 m-4">
+        </component-card>
+    </div>
 </div>
 
 <!-- SC : https://stackblitz.com/edit/angular-routerlink-state?file=src%2Fapp%2Fapp.component.html,src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.module.ts -->

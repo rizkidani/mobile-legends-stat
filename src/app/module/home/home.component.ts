@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
       (response) => { // get object from homeService
         if (response.success == true) {
           this.heroes = response.hero;
+          console.log(this.heroes);
         } else {
           this.heroes = [];
         }
