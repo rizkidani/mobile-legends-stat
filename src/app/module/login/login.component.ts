@@ -15,16 +15,22 @@ export class LoginComponent implements OnInit {
   ) { }
 
   form: FormGroup = new FormGroup({
-    email: new FormControl('',),
-    password: new FormControl('',)
+    email: new FormControl(''),
+    password: new FormControl('')
   });
   submitted = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        email: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]]
+        email: ['', {
+          validators: [Validators.required, Validators.email],
+          updateOn: 'change'
+        }],
+        password: ['', {
+          validators: [Validators.required, Validators.minLength(6), Validators.maxLength(15)],
+          updateOn: 'change'
+        }]
       }
     )
   }
