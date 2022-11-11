@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl('')
   });
-  submitted = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -41,7 +40,6 @@ export class LoginComponent implements OnInit {
 
   // Form Validation | SC : https://www.bezkoder.com/angular-14-form-validation/
   postLogin(): void {
-    this.submitted = true;
     if (this.form.valid) {
       this.loginService.postLogin(this.form.value).subscribe(
         (response) => {
